@@ -2,10 +2,8 @@ import sys
 import socket
 import thread
 import random
-import socket
 import time
 import pprint
-import re
 
 pp = pprint.pprint
 
@@ -25,7 +23,7 @@ CLIENT_SOCKETS = []
 
 def randomurl():
 	retVal = "http://%s/" % hostnames[random.randint(0,hostnames_rng)]
-	for x in xrange(random.randint(3,5000)):
+	for _ in xrange(random.randint(3,5000)):
 		retVal = retVal + alpha[random.randint(0,len(alpha)-1)]
 	return retVal + "\n\n"
 
