@@ -4,9 +4,16 @@ import shutil
 import os
 from tempfile import NamedTemporaryFile
 
-file_path = os.path.join(os.path.dirname(__file__), "data.csv")
-filename = file_path
+
+#file_ = 'utils/template/email_message.txt'
+#file_item_path = os.path.join(os.path.dirname(__file__), file_)
+#filename = file_path
+
+file_item_path = os.path.join(os.path.dirname(__file__), "data.csv")
+
+
 def read_data(user_id=None, email=None):
+    filename = file_item_path
     print(filename)
     with open(filename, "r") as csvfile:
         reader = csv.DictReader(csvfile)

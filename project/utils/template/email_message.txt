@@ -1,0 +1,8 @@
+Hi {insert_name}!
+
+Thanks you for your purchase on {insert_date}.
+Purchase total was ${insert_total}.  
+We really appreciate everyone of our customers,
+and hope you've enjoy it!
+
+Thank you! :)

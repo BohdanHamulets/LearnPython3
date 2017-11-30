@@ -1,42 +1,59 @@
 import csv
+import datetime
 import shutil
 from tempfile import NamedTemporaryFile
 
-def findout_length(file_path):
-    with open("data.csv", "r") as our_file:
-        read_it = csv.reader(our_file)
-        reader_list = list(read_it)
-        print(reader_list)
+
+def get_length(file_path):
+    with open("data.csv", "r") as csvfile:
+        reader = csv.reader(csvfile)
+        reader_list = list(reader)
         return len(reader_list)
-def append_to_csv(file_path, name, email):
-    future_filed_names = ['id', 'name', 'email']
-    #the number of the rows?
-    next_id = findout_length(file_path)
-    with open(file_path, "a") as our_file:
-         writer = csv.DictWriter(our_file, fieldnames=future_filed_names)
-         writer.writeheader()
-         writer.writerow({
-            'id': next_id,
-            'name': name,
-            'email': email
-            })
-append_to_csv("data.csv", "Bohdan", "chillimillitilli@gmail.com")
 
-filename = "data.csv"
-temp_file = NamedTemporaryFile(delete=False)
-
-with open(filename, "r") as csvfile, open(filename, "r+") as temp_file:
-    file_reader = csv.DictReader(temp_file)
-    future_filed_names = ['id', 'name', 'email', 'amount', 'sent']
-    writer = csv.DictWriter(temp_file, fieldnames=future_filed_names)
-    writer.writeheader()
-    print(temp_file.name)
-    for row in file_reader:
+def append_data(file_path, name, email, amount):
+    fieldnames = ['id', 'name', 'email', 'amount', 'sent', 'date']
+    #the number of rows?
+    next_id = get_length(file_path)
+    with open(file_path, "a") as csvfile:
+        writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
         writer.writerow({
-            "id": row["id"],
-            "name": row["name"],
-            "email": row["email"],
-            "amount": 1293.23,
-            "sent": "yes"
+                "id": next_id,
+                "name": name,
+                "email": email,
+                "sent": "",
+                "amount": amount,
+                "date": datetime.datetime.now()
             })
-    shutil.move(temp_file.name, filename)
+
+append_data("data.csv", "Justin", "bodja.syper@gmail.com", 123.22)
+
+def edit_data(edit_id=None, email=None, amount=None, sent=None):
+    filename = "data.csv"
+    temp_file = NamedTemporaryFile(delete=False)
+
+    with open(filename, "rb") as csvfile, temp_file:
+        reader = csv.DictReader(csvfile)
+        fieldnames = ['id', 'name', 'email', 'amount', 'sent', 'date']
+        writer = csv.DictWriter(temp_file, fieldnames=fieldnames)
+        writer.writeheader()
+        for row in reader:
+            #print(row['id'] == 4)
+            if edit_id is not None:
+                if int(row['id']) == int(edit_id):
+                    row['amount'] = amount
+                    row['sent'] = sent
+            elif email is not None and edit_id is None:
+                if str(row['email']) == str(email):
+                    row['amount'] = amount
+                    row['sent'] = sent
+            else:
+                pass
+            writer.writerow(row)
+        
+        shutil.move(temp_file.name, filename)
+        return True
+    return False
+
+
+#edit_data(8, 9992.32, "")
+edit_data(email='hello@teamcfe.com', amount=99.99, sent='')
