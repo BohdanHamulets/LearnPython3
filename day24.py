@@ -5,12 +5,14 @@ import os
 
 loc = 'London,+United%20Kingdom'
 #change this var for other place if you want to scrap other location
+pages_number= 200
+#change this var to alter number of pages you want to scrap
 
-def lookup_be_location(loc):
+def lookup_be_location(loc, pages_number):
     base_url = "https://www.yelp.com/search?find_loc="
     current_page = 0
     #defining url that we'll parse and var current page with step += 10
-    while current_page < 201:
+    while current_page < pages_number:
         print(current_page)
         url= base_url + loc + "&start=" + str(current_page)
         #putting url together
@@ -62,7 +64,7 @@ def lookup_be_location(loc):
         #going to the next page
         current_page +=10
 
-lookup_be_location(loc)
+lookup_be_location(loc, pages_number)
 
 '''
 you can also call this function with needed location by passing argument
