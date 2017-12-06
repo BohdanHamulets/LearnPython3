@@ -2,13 +2,13 @@ import requests
 from twilio.rest import Client
 #username= "chillimilli"
 #password = "SuperGoodPassword"
-account_sid = #hiden
-auth_token = #hidden
+account_sid = ""
+auth_token = ""
 
 
-twilio_phone = '+13126545077'
-my_phone = "+380937088188"
-maria_phone = "+380937087088"
+#twilio_phone = ''
+#my_phone = ""
+#maria_phone = ""
 
 base_url = 'https://api.twilio.com/2010-04-01'
 message_url = base_url + "/Accounts/" + account_sid + "Messages/"
@@ -24,12 +24,18 @@ client = Client(account_sid, auth_token)
 #auth = (account_sid, auth_token)
 r = requests.post(message_url, auth=auth)
 
+i = 0
+img = "http://travel.home.sndimg.com/content/dam/images/travel/fullset/2016/03/07/california-beach-getaway-pismo-beach.jpg.rend.hgtvcom.966.725.suffix/1491592782974.jpeg"
 
-message_data = client.messages.create(
-        maria_phone,
-        body="Hi, I'm sending this message using python and API",
-        from_=twilio_phone,
-        )
+while i < 10:
+    smska = "Spam number {number}".format(number=i)
+    message_data = client.messages.create(
+            my_phone,
+            body="",
+            from_=twilio_phone,
+            media_url=img
+            )
+    i += 1
 
 print(message_data.sid)
 
