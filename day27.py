@@ -2,8 +2,8 @@ import requests
 from twilio.rest import Client
 #username= "chillimilli"
 #password = "SuperGoodPassword"
-account_sid = "AC1ec4fa564de794d593b27b04fbde8882"
-auth_token = "a7017b26653f62eb0b19e52f695fa282"
+account_sid = #hiden
+auth_token = #hidden
 
 
 twilio_phone = '+13126545077'
@@ -27,7 +27,7 @@ r = requests.post(message_url, auth=auth)
 
 message_data = client.messages.create(
         maria_phone,
-        body="Hi, newbie ^_^",
+        body="Hi, I'm sending this message using python and API",
         from_=twilio_phone,
         )
 
