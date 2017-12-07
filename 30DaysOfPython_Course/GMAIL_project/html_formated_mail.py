@@ -6,10 +6,10 @@ from email.mime.text import MIMEText
 
 host = "smtp.gmail.com"
 port = 587
-username = "chillimillitilli@gmail.com"
-password = 945094509450
-from_header = "chillimillitilli@gmail.com"
-to_list = ["chillimillitilli@gmail.com"]
+username = "chilli"
+password = 
+from_header = "chilli"
+to_list = ["chilli"]
 
 
 email_conn = smtplib.SMTP(host, port)
