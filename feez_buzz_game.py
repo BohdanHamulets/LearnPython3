@@ -14,17 +14,8 @@ def checkio(number):
         else:
             return("Your number is not divisible by 3 or 5")
     else:
-        return("""Value that you've entered is not integer or float or even a sting with a value that can be converted to one!\n
-What is wrong with you?""")
+        return("""Value that you've entered is not an integer or float, or even a sting with a value that can be converted to one!\n
+What is wrong with you?\n ^_^\n""")
 
 
 print(checkio(number))
-#print(checkio(20))
-#print(checkio(15))
-#print(checkio(5))
-#print(checkio(3.#7))
-#print(checkio("bla"))
-
-
-	#some comment
-#other commet
