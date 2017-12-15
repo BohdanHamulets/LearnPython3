@@ -1,6 +1,5 @@
 import time
 
-
 global i
 i = 0
 
@@ -11,18 +10,13 @@ def wait():
 
 def sleep_then_add():
     global i
-    time.sleep(2)
+    time.sleep(1)
     i += 1
-    print(i)
-
-
-for x in range(10):
-    sleep_then_add()
+    if i <= 10:
+        print(i)
+    else:
+        pass
 
 while True:
-    time.sleep(2)
+    sleep_then_add()
     wait()
-
-
-
-
