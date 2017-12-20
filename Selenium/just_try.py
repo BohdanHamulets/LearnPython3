@@ -1,6 +1,5 @@
 import time
 
-global i
 i = 0
 
 def wait():
@@ -20,3 +19,5 @@ def sleep_then_add():
 while True:
     sleep_then_add()
     wait()
+
+print
