@@ -1,7 +1,7 @@
 import requests
 from twilio.rest import Client
 #username= "chillimilli"
-#password = "SuperGoodPassword"
+#password = "FacePalm.jpg"
 account_sid = ""
 auth_token = ""
 
