@@ -44,7 +44,7 @@ for x in range(1, 101):
     elem = driver.find_element_by_class_name("submit")
     elem.send_keys(Keys.RETURN)
 
-    my_bla = driver.getElementsByClassName("submit")
+    my_bla = driver.find_element_by_class_name("submit")
     my_bla.click()
 
 """for x in range(1, 101):
