@@ -9,14 +9,16 @@ def ecxeptionHandler(argument):
         c = 0
 
         #d = ( a + b ) / c
-        print(argument/5)
+        print(argument)
     except TypeError:
         print("TypeError")
     except NameError:
         print("NameError")
     else:
         print("There was no exceptions")
+    finally:
+        print("I'm finally block, I always run ^_^")
 
 ecxeptionHandler(5)
 print("-+"*25)
-ecxeptionHandler("bla")
+ecxeptionHandler(3/0)
