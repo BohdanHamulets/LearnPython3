@@ -4,12 +4,21 @@ Reading a file -> .read()
 Reading a line of a file - > .readline()
 """
 
-my_file = open("firstFile.bla", 'r')
+whole_file = open("firstFile.bla", 'r')
 
-#my_file.read()
-#print(str(my_file.read()))
+print(str(whole_file.read()))
 
-for object in my_file.read():
-    print(object)
+whole_file.close()
 
-my_file.close()
+read_by_lines = open("firstFile.bla", 'r')
+
+new_list = []
+
+try:
+    for x in range(5):
+        new_list.append(read_by_lines.readline())
+except:
+    pass
+
+read_by_lines.close()
+print("Printing new_list : ", new_list)
