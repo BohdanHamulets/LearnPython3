@@ -16,7 +16,7 @@ my_file = open(path, "w")
 for item in my_list:
     my_file.write(str(item) + '\n')
 
-# my_file.close()
+my_file.close()
 
 path_ = os.getcwd()
 print(path)
